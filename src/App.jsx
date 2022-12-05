@@ -19,6 +19,7 @@ function App() {
         <Route path={`${dentista.path}/:id`} element={<Detail />} />
         <Route path={favs.path} element={<Favs />} />
         <Route path={contacto.path} element={<Contact />} />
+        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
       <Footer />
     </div>
