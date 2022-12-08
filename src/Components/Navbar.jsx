@@ -16,7 +16,7 @@ const Navbar = () => {
       <Link to={home.path}>{home.name}</Link>
       <Link to={contacto.path}>{contacto.name}</Link>
       <Link to={favs.path}>{favs.name}</Link>
-      <Link to={dentista.path}>{dentista.name}</Link>
+      {/* <Link to={dentista.path}>{dentista.name}</Link> */}
       <button onClick={handleTheme}>Change theme</button>
     </nav>
   );
