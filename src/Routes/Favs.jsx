@@ -7,15 +7,8 @@ import { useEstadosGlobalesContext } from "../Components/utils/global.context";
 const Favs = () => {
   const { theme } = useEstadosGlobalesContext();
 
-  const favs = JSON.parse(localStorage.getItem("favorites")) || [];
-
-  const handleFavs = () => {
-    newFavs = favs.filter((fav) => fav.id !== id);
-    localStorage.setItem("favorites", JSON.stringify(newFavs));
-  };
-
   return (
-    <div className={theme}>
+    <div className={theme.color}>
       <h1>Dentists Favs</h1>
       <div className="card-grid">
         {favs.length ? (

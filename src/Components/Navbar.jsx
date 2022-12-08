@@ -6,21 +6,19 @@ import { links } from "./utils/links";
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Navbar = () => {
-  const { theme, setTheme } = useEstadosGlobalesContext();
+  const { theme, dispatchTheme } = useEstadosGlobalesContext();
   const { home, contacto, favs, dentista } = links;
 
   const handleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    dispatchTheme({ type: theme.color === "light" ? "SET_DARK" : "SET_LIGHT" });
   };
 
   return (
-    <nav className={theme}>
-      {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
+    <nav className={theme.color}>
       <Link to={home.path}>{home.name}</Link>
       <Link to={contacto.path}>{contacto.name}</Link>
       <Link to={favs.path}>{favs.name}</Link>
       <Link to={dentista.path}>{dentista.name}</Link>
-      {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
       <button onClick={handleTheme}>Change theme</button>
     </nav>
   );

@@ -1,21 +1,29 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 
-const initialState = { theme: "light", data: [] };
+const initialThemeState = { color: "light" };
+const initialOdontologosState = [];
 
 const EstadosGlobales = createContext();
 
+const themeReducer = (state, action) => {
+  switch (action.type) {
+    case "SET_LIGHT":
+      return { ...state, color: "light" };
+    case "SET_DARK":
+      return { ...state, color: "dark" };
+    default:
+      return state;
+  }
+};
 const EstadosGlobalesProvider = ({ children }) => {
-  //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
-  // con axios pegarle a la api de https://jsonplaceholder.typicode.com/users y guardar el resultado usando useMemo
-
-  const [odontologos, setOdontologos] = useState(initialState.data);
-  const [theme, setTheme] = useState(initialState.theme);
+  const [odontologos, setOdontologos] = useState(initialOdontologosState);
+  const [theme, dispatchTheme] = useReducer(themeReducer, initialThemeState);
 
   const value = {
     odontologos,
     setOdontologos,
     theme,
-    setTheme,
+    dispatchTheme,
   };
 
   return (

@@ -15,7 +15,7 @@ const Home = () => {
   }, []);
 
   return (
-    <main className={theme}>
+    <main className={theme.color}>
       <h1>Home</h1>
       <div className="card-grid">
         {odontologos.map((odontologo) => (
