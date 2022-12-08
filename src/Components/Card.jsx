@@ -12,7 +12,6 @@ const Card = ({ name, username, id }) => {
   }, []);
 
   const handleFavs = () => {
-    // Aqui iria la logica para agregar la Card en el localStorage
     const favs = JSON.parse(localStorage.getItem("favorites")) || [];
 
     let newFavs;
@@ -35,7 +34,6 @@ const Card = ({ name, username, id }) => {
         <img src="./images/doctora.jpg" alt={username} />
         <h4>{name}</h4>
         <p>{username}</p>
-        {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
       </Link>
       <button onClick={handleFavs} className="favButton">
         <span className={`material-symbols-outlined ${isFav ? "fav" : ""}`}>

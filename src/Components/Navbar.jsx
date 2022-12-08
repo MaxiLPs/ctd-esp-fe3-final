@@ -3,8 +3,6 @@ import { useEstadosGlobalesContext } from "./utils/global.context";
 import { Link } from "react-router-dom";
 import { links } from "./utils/links";
 
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
-
 const Navbar = () => {
   const { theme, dispatchTheme } = useEstadosGlobalesContext();
   const { home, contacto, favs, dentista } = links;

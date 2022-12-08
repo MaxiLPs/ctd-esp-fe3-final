@@ -1,4 +1,3 @@
-//object to contain all the names of the links and their paths
 export const links = {
   home: {
     name: "Home",
