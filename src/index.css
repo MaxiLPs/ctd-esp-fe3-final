@@ -132,6 +132,11 @@ tr:nth-child(even) {
   color: white;
 }
 
+.dark .text-center .h404 {
+  -webkit-text-stroke: 1px black;
+  color: transparent;
+
+}
 
 .fav {
   color: red;
