@@ -7,8 +7,8 @@ const Contact = () => {
 
   return (
     <div className={theme.color}>
-      <h2>Want to know more?</h2>
-      <p>Send us your questions and we will contact you</p>
+      <h1>Want to know more?</h1>
+      <p className="centered">Send us your questions and we will contact you</p>
       <Form />
     </div>
   );
