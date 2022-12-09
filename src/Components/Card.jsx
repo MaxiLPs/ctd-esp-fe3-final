@@ -13,19 +13,19 @@ const Card = ({ name, username, id }) => {
 
   const handleFavs = () => {
     const favs = JSON.parse(localStorage.getItem("favorites")) || [];
-
-    let newFavs;
-
-    if (favs.find((fav) => fav.id === id)) {
-      //If the id is already in the array, remove it from favs
-      newFavs = favs.filter((fav) => fav.id !== id);
-    } else {
-      //If the id is not in the array, add it to favs
-      newFavs = [...favs, { name, username, id }];
-    }
+    const newFavs = favs.filter((fav) => fav.id !== id);
+    debugger;
     setIsFav(!isFav);
 
-    localStorage.setItem("favorites", JSON.stringify(newFavs));
+    if (isFav) {
+      localStorage.setItem("favorites", JSON.stringify(newFavs));
+      return;
+    }
+
+    localStorage.setItem(
+      "favorites",
+      JSON.stringify([...favs, { name, username, id }])
+    );
   };
 
   return (

@@ -16,51 +16,58 @@ const Form = () => {
     });
   };
 
-  const validate = () => {
+  const validate = (newUser) => {
     const emailRegex =
       /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
 
-    let nombreError = "";
-    let emailError = "";
+    const error = { nombreError: "", emailError: "" };
 
     if (!newUser.nombre || newUser.nombre.length < 5) {
-      nombreError = "El nombre es requerido y debe tener al menos 5 caracteres";
+      error.nombreError =
+        "El nombre es requerido y debe tener al menos 5 caracteres";
     }
 
     if (!newUser.email || !emailRegex.test(newUser.email)) {
-      emailError = "El email debe ser válido";
+      error.emailError = "El email debe ser válido";
     }
 
-    if (nombreError || emailError) {
-      setErrors({ nombreError, emailError });
+    if (error.nombreError || error.emailError) {
+      setErrors(error);
       return false;
     }
 
+    setErrors({});
     return true;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const isValid = validate();
-
-    console.log(errors);
+    // El valor que le pasa lo deberias sacar del evento
+    const isValid = validate(newUser);
 
     if (!isValid) {
       return;
     }
-
-    //TODO: Implementar validaciones
     alert(`Gracias ${newUser.nombre}, te contactaremos cuando antes vía mail`);
   };
 
   return (
     <div>
       <form>
-        <input name="nombre" type="text" onChange={handleInputChange} />
-        {errors.nombreError && <label>{errors.nombreError}</label>}
-        <input name="email" type="email" onChange={handleInputChange} />
-        {errors.emailError && <label>{errors.emailError}</label>}
+        <input
+          className={errors.nombreError ? "inputError" : ""}
+          name="nombre"
+          type="text"
+          onChange={handleInputChange}
+        />
+        {errors.nombreError && <label> ⚠ {errors.nombreError}</label>}
+        <input
+          className={errors.emailError ? "inputError" : ""}
+          name="email"
+          type="email"
+          onChange={handleInputChange}
+        />
+        {errors.emailError && <label> ⚠ {errors.emailError}</label>}
         <button onClick={handleSubmit}>Enviar</button>
       </form>
     </div>
