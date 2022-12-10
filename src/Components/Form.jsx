@@ -33,6 +33,7 @@ const Form = () => {
 
     if (error.nombreError || error.emailError) {
       setErrors(error);
+      alert("Por favor, complete los campos correctamente");
       return false;
     }
 
