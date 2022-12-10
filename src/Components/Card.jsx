@@ -14,7 +14,6 @@ const Card = ({ name, username, id }) => {
   const handleFavs = () => {
     const favs = JSON.parse(localStorage.getItem("favorites")) || [];
     const newFavs = favs.filter((fav) => fav.id !== id);
-    debugger;
     setIsFav(!isFav);
 
     if (isFav) {
