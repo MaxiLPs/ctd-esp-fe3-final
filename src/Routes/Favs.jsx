@@ -7,7 +7,7 @@ const Favs = () => {
   const favs = JSON.parse(localStorage.getItem("favorites")) || [];
 
   return (
-    <div className={theme.color}>
+    <main className={theme.color}>
       <h1>Dentists Favs</h1>
       <div className="card-grid">
         {favs.length ? (
@@ -23,7 +23,7 @@ const Favs = () => {
           <p>No hay favoritos</p>
         )}
       </div>
-    </div>
+    </main>
   );
 };
 

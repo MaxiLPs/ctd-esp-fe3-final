@@ -17,7 +17,7 @@ const Detail = () => {
   }, [odontologos]);
 
   return (
-    <div className={theme.color}>
+    <main className={theme.color}>
       <h1>Detail Dentist id </h1>
       {odontologo && (
         <table>
@@ -40,7 +40,7 @@ const Detail = () => {
         </table>
       )}
       {!odontologo && <h1>Dentist Not Found</h1>}
-    </div>
+    </main>
   );
 };
 
